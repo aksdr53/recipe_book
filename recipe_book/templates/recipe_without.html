@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="ru">          
+  <head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+        Таблица рецептов без ингридиента {{ ingredient.name }}
+        {% endblock %}
+    </title>
+    <style>
+        th {
+  
+            border: 3px solid #000000;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        td {
+  
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+    </style>      
+  </head>
+  <body>
+    {% block content %}
+    <h1>Таблица рецептов без ингридиента {{ ingredient.name }}</h1>
+    <table>
+        <tr>
+            <th> id </th>
+            <th> Рецепт </th>
+        </tr>
+        {% for recipe in recipes %}
+        <tr>
+            <td>{{ recipe.id }}</td>
+            <td>{{ recipe.name }}</td>
+        </tr>
+        {% endfor %} 
+    </table>
+    {% endblock %}
+  </body>
+</html> 
